@@ -4,12 +4,8 @@ import 'package:english_words/english_words.dart';
 class NameGeneratorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: "Startup Name Generator",
-      theme: new ThemeData(
-        primaryColor: Colors.white,
-      ),
-      home: RandomWords(),
+    return new Container(
+      child: RandomWords(),
     );
   }
 }
@@ -22,11 +18,11 @@ class RandomWordsState extends State<RandomWords> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Startup Name Generator"),
-        actions: <Widget>[
-          new IconButton(icon: const Icon(Icons.save), onPressed: _pushSaved)
-        ],
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: new FloatingActionButton(
+        onPressed: _pushSaved,
+        tooltip: "저장된 이름 보기",
+        child: Icon(Icons.save),
       ),
       body: _buildSuggestions(),
     );
@@ -38,7 +34,7 @@ class RandomWordsState extends State<RandomWords> {
       if (_saved.isEmpty) {
         return new Scaffold(
             appBar: new AppBar(
-              title: const Text('저장된 추천 이름들'),
+              title: const Text('저장된 이름들'),
             ),
             body: new Center(
               child: new Text(
@@ -49,7 +45,7 @@ class RandomWordsState extends State<RandomWords> {
             ));
       } else {
         final Iterable<ListTile> tiles = _saved.map(
-              (WordPair pair) {
+          (WordPair pair) {
             return new ListTile(
               title: new Text(pair.asPascalCase, style: _biggerFont),
             );
