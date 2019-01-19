@@ -1,5 +1,5 @@
-import 'package:flutter_app/ex1.dart';
-import 'package:flutter_app/nameGenerator.dart';
+import 'package:flutter_app/pages/ex1.dart';
+import 'package:flutter_app/pages/nameGenerator.dart';
 
 import 'package:flutter/material.dart';
 
