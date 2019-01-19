@@ -29,11 +29,7 @@ class Ex1 extends StatelessWidget {
               ],
             ),
           ),
-          Icon(
-            Icons.star,
-            color: Colors.red,
-          ),
-          Text('42'),
+          FavoriteWidget(),
         ],
       ),
     );
@@ -99,3 +95,46 @@ class Ex1 extends StatelessWidget {
   }
 }
 
+class FavoriteWidget extends StatefulWidget {
+  @override
+  _FavoriteWidgetState createState() => _FavoriteWidgetState();
+}
+
+class _FavoriteWidgetState extends State<FavoriteWidget> {
+  bool _isFavorited = true;
+  int _favoriteCount = 41;
+
+  void _toggleFavorite() {
+    setState(() {
+      if (_isFavorited) {
+        _favoriteCount -= 1;
+        _isFavorited = false;
+      } else {
+        _favoriteCount += 1;
+        _isFavorited = true;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.all(0.0),
+          child: IconButton(
+              icon: _isFavorited ? Icon(Icons.star) : Icon(Icons.star_border),
+              color: Colors.red,
+              onPressed: _toggleFavorite),
+        ),
+        SizedBox( // 숫자가 바뀌는 값에 따라 변화될 수 있는 레이아웃을 고정 시킬 수 있다
+          width: 18.0,
+          child: Container(
+            child: Text('$_favoriteCount'),
+          ),
+        )
+      ],
+    );
+  }
+}
