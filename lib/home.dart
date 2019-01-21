@@ -1,4 +1,5 @@
 import 'package:flutter_app/pages/ex1.dart';
+import 'package:flutter_app/pages/ex2.dart';
 import 'package:flutter_app/pages/nameGenerator.dart';
 
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ class HomePage extends StatefulWidget {
   final drawerItems = [
     new DrawerObj("Startup Name Generator", Icons.local_pizza),
     new DrawerObj("ex1 - Build Layout", Icons.time_to_leave),
+    new DrawerObj("FriendlychatApp", Icons.chat),
   ];
 
   @override
@@ -25,6 +27,8 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return new Ex1();
       case 2:
+        return new Ex2();
+        case 3:
         break;
     }
   }
