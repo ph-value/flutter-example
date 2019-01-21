@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
         child: new Column(
           children: <Widget>[
             new UserAccountsDrawerHeader(
-                accountName: new Text("your name"), accountEmail: null),
+                accountName: new Text("ph-value's flutter lab"), accountEmail: null),
             new Column(children: drawerOptions)
           ],
         ),
